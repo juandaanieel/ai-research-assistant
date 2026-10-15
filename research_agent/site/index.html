@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="A compact snapshot of research decisions, progress, and projects.">
+<title>{{TITLE}} · Research agent</title>
+<link rel="stylesheet" href="style.css?v={{STYLE_REVISION}}">
+</head>
+<body>
+<div class="shell">
+<header><div class="brand">Research agent</div><span class="edition">{{LABEL}}</span></header>
+<main id="main"><div class="page-heading"><div class="heading-identity"><img class="agent-avatar" src="agent.webp" alt="AI scientist wearing a lab coat"><div><h1>{{TITLE}}</h1></div></div><span class="snapshot">Built<br><time datetime="{{UPDATED}}">{{UPDATED}}</time></span></div>
+<div class="index">{{BODY}}</div></main>
+<footer><span>Project index</span><span>Snapshot {{REVISION}}</span></footer>
+</div>
+<script>
+for (const time of document.querySelectorAll('time[datetime]')) {
+ time.textContent = new Intl.DateTimeFormat(undefined, {dateStyle: 'medium', timeStyle: 'short'}).format(new Date(time.dateTime));
+ time.title = 'Build time in your local timezone; content is a snapshot, not live agent status.';
+}
+function revealProject() {
+ const target = document.getElementById(location.hash.slice(1));
+ if (!target) return;
+ for (let node = target; node; node = node.parentElement) {
+   if (node.tagName === 'DETAILS') node.open = true;
+ }
+ target.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+window.addEventListener('hashchange', revealProject);
+revealProject();
+</script>
+</body>
+</html>

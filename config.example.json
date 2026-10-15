@@ -1,0 +1,12 @@
+{
+  "vault": "/absolute/path/to/private/vault",
+  "profile": "/absolute/path/to/private/vault/Research/Research profile.md",
+  "timezone": "UTC",
+  "reader_names": [
+    "Alex Example"
+  ],
+  "arxiv_sections": [
+    "quant-ph",
+    "cond-mat"
+  ]
+}

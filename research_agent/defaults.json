@@ -1,0 +1,15 @@
+{
+  "vault": null,
+  "profile": null,
+  "timezone": "Europe/Warsaw",
+  "state_dir": "~/Library/Application Support/research-agent",
+  "codex": "codex",
+  "review_model": "gpt-5.6-sol",
+  "review_effort": "medium",
+  "hypothesis_model": "gpt-5.6-sol",
+  "hypothesis_effort": "high",
+  "model_timeout_seconds": 900,
+  "max_input_chars": 500000,
+  "recent_days": 3,
+  "arxiv_sections": ["quant-ph", "cond-mat"]
+}

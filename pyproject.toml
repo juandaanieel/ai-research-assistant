@@ -1,0 +1,31 @@
+[project]
+name = "research-agent"
+version = "0.1.0"
+description = "Daily research briefs with deterministic collection and safe Obsidian updates"
+requires-python = ">=3.11"
+dependencies = [
+    "PyYAML>=6,<7",
+    "markdown-it-py>=3,<5",
+    "jsonschema>=4,<5",
+    "beautifulsoup4>=4.12,<5",
+    "pypdf>=6,<7",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["research_agent*"]
+
+[tool.setuptools.package-data]
+research_agent = ["defaults.json", "templates/*.md", "site/*.css", "site/*.html", "site/*.webp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[dependency-groups]
+dev = ["pytest>=8", "uv==0.12.10"]
